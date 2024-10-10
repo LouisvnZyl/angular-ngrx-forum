@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
+import { CartPage } from './cart-page/cart.page';
 
-export const routes: Routes = [
+export const cartRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'shop',
-    pathMatch: 'full',
+    component: CartPage,
   },
 ];
