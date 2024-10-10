@@ -12,9 +12,7 @@ export const initialCartState: CartState = {
 const itemsReducer = createReducer(
   initialCartState.items,
   on(CartActions.addToCart, (state, { cartItem }) => [...state, cartItem]),
-  on(CartActions.removeFromCart, (state, { itemId }) =>
-    state.filter((cartItem) => cartItem.itemId != itemId)
-  ),
+  on(CartActions.removeFromCartSuccess, (_, { cartItems }) => cartItems),
   on(CartActions.clearCart, () => [])
 );
 

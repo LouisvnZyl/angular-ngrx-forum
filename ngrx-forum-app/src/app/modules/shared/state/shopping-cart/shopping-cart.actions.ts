@@ -12,6 +12,16 @@ export const removeFromCart = createAction(
   props<{ itemId: number }>()
 );
 
+export const removeFromCartSuccess = createAction(
+  '[Cart] REMOVE_CART_ITEM_SUCCESS',
+  props<{ cartItems: CartItem[] }>()
+);
+
+export const removeFromCartFailed = createAction(
+  '[Cart] REMOVE_CART_ITEM_FAILED',
+  props<{ errorMessage: string }>()
+);
+
 export const clearCart = createAction('[Cart] CLEAR_CART');
 
 export const setShoppingCartConfig = createAction(
