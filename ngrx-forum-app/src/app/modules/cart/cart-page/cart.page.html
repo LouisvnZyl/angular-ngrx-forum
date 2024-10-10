@@ -1,1 +1,19 @@
-<div>This is the cart page.</div>
+<table>
+  <thead>
+    <tr>
+      <th>Item Name</th>
+      <th>Item Cost</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of cartItems$ | async">
+      <td>{{ item.itemName }}</td>
+      <td>\${{ item.itemCost.toFixed(2) }}</td>
+      <td>
+        <button (click)="removeCartItem(item.itemId)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="clearCart()">Clear Cart</button>

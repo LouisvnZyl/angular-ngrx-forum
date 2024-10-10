@@ -12,6 +12,7 @@ import {
   initialCartState,
 } from './modules/shared/state/shopping-cart/shopping-cart.reducer';
 import { CartEffects } from './modules/shared/state/shopping-cart/shopping-cart.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,10 @@ import { CartEffects } from './modules/shared/state/shopping-cart/shopping-cart.
       initialState: initialCartState,
     }),
     EffectsModule.forRoot(CartEffects),
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
