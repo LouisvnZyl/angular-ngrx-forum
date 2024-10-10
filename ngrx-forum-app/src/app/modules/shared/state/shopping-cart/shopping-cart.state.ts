@@ -1,4 +1,7 @@
+import { CartConfig } from '../interfaces/cart-config.interface';
+import { CartItem } from '../interfaces/cart-item.interface';
+
 export interface CartState {
-  items: string[];
-  cartConfig: string;
+  items: CartItem[];
+  cartConfig: CartConfig | null;
 }
