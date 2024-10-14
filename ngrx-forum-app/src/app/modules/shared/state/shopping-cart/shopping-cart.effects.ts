@@ -13,19 +13,19 @@ export class CartEffects {
     private readonly _store: Store<CartState>
   ) {}
 
-  public removeCartItem$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(CartActions.removeFromCart),
-      withLatestFrom(this._store.select(selectCartItems)),
-      switchMap(([itemId, cartItems]) => {
-        const filteredCartItems = cartItems.filter(
-          (cartItem) => cartItem.itemId !== itemId.itemId
-        );
+  // public removeCartItem$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(CartActions.removeFromCart),
+  //     withLatestFrom(this._store.select(selectCartItems)),
+  //     switchMap(([itemId, cartItems]) => {
+  //       const filteredCartItems = cartItems.filter(
+  //         (cartItem) => cartItem.itemId !== itemId.itemId
+  //       );
 
-        return of(
-          CartActions.removeFromCartSuccess({ cartItems: filteredCartItems })
-        );
-      })
-    )
-  );
+  //       return of(
+  //         CartActions.removeFromCartSuccess({ cartItems: filteredCartItems })
+  //       );
+  //     })
+  //   )
+  // );
 }

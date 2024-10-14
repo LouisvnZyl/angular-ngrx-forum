@@ -15,7 +15,9 @@ import {
   standalone: true,
 })
 export class CartPage {
-  constructor(private readonly _store: Store<CartState>) {}
+  constructor(private readonly _store: Store<CartState>) {
+    this.cartItems$.subscribe((data) => console.log('Cart Data', data));
+  }
 
   public readonly cartItems$ = this._store.select(selectCartItems);
 
