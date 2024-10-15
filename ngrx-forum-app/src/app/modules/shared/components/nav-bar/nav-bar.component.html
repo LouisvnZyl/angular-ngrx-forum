@@ -7,5 +7,14 @@
       <a>Cart</a>
     </li>
   </ul>
-  <div class="placeholder"></div>
+  <div class="placeholder">
+    <div class="cart-count">
+      <span>{{ cartItemCount$ | async }}</span>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="shopping_cart"
+      ></mat-icon>
+    </div>
+  </div>
 </div>

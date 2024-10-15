@@ -13,6 +13,7 @@ import {
 } from './modules/shared/state/shopping-cart/shopping-cart.reducer';
 import { CartEffects } from './modules/shared/state/shopping-cart/shopping-cart.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
