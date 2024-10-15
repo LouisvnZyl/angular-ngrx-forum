@@ -200,3 +200,18 @@
     display: flex;
   }
 }
+
+.cart-count {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.count {
+  font-size: 32px; /* Increase count size */
+  font-weight: bold; /* Make count bold */
+  margin-right: 8px; /* Space between count and icon */
+}
+
+.icon {
+  font-size: 24px; /* Increase icon size */
+}
