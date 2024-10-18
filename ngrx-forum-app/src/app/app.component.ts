@@ -13,7 +13,9 @@ export class AppComponent {
   constructor(
     private readonly _appConfigService: ApplicationConfigService,
     private readonly _store: Store<CartState>
-  ) {}
+  ) {
+    this.setUpAplicationConfig();
+  }
 
   private setUpAplicationConfig(): void {
     this._appConfigService.getShoppingCartConfig().subscribe((config) => {
