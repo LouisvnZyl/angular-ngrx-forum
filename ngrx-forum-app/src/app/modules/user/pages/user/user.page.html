@@ -4,6 +4,7 @@
       <th>User ID</th>
       <th>User Name</th>
       <th>User Email</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -11,7 +12,25 @@
       <td>{{ user.userId }}</td>
       <td>{{ user.userName }}</td>
       <td>{{ user.userEmail }}</td>
+      <td><button (click)="onUpdate(user)">Update</button></td>
     </tr>
   </tbody>
 </table>
 <button (click)="getUsers()">Get Users</button>
+
+<div class="edit-user">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" formControlName="userName" />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="userEmail" />
+    </div>
+    <button type="submit" [disabled]="formGroup.invalid" (click)="onCancel()">
+      Cancel
+    </button>
+    <button type="submit" [disabled]="formGroup.invalid">Submit</button>
+  </form>
+</div>
