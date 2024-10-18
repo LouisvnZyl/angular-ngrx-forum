@@ -14,6 +14,8 @@ import {
 import { CartEffects } from './modules/shared/state/shopping-cart/shopping-cart.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserEffects } from './modules/user/state/user.state.effects';
+import { UserService } from './modules/user/services/user.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,14 +27,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StoreModule.forFeature(appCartStateFeatureKey, cartReducer, {
       initialState: initialCartState,
     }),
-    EffectsModule.forRoot(CartEffects),
-    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot(CartEffects, UserEffects),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

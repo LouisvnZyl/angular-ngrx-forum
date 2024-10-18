@@ -35,6 +35,9 @@ export class NavBarComponent {
       case NavigationOption.Shop:
         void this._router.navigateByUrl('shop');
         break;
+      case NavigationOption.User:
+        void this._router.navigateByUrl('user');
+        break;
       default:
         break;
     }

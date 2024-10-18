@@ -3,7 +3,7 @@ import { CartState } from './shopping-cart.state';
 import * as CartActions from './shopping-cart.actions';
 import { cartAdapter } from './shopping-cart.adapter';
 
-export const appCartStateFeatureKey = 'AppCartStateKey';
+export const appCartStateFeatureKey = 'ShoppingCart';
 
 export const initialCartState: CartState = cartAdapter.getInitialState({
   items: cartAdapter.getInitialState(),
