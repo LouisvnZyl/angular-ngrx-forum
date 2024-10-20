@@ -13,12 +13,6 @@ const systemUserReducer = createReducer(
   initialUserState.users,
   on(SystemUserActions.getSystemUsersSuccess, (state, action) =>
     systemUserAdapter.addMany(action.systemUsers, state)
-  ),
-  on(SystemUserActions.updateSystemUser, (state, action) =>
-    systemUserAdapter.updateOne(
-      { id: action.userToUpdate.userId, changes: action.userToUpdate },
-      state
-    )
   )
 );
 

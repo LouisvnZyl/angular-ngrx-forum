@@ -3,10 +3,7 @@ import { UserEntity } from '../../state/interfaces/user-entity.interface';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { UserState } from '../../state/user.state';
-import {
-  getSystemUsers,
-  updateSystemUser,
-} from '../../state/user.state.actions';
+import { getSystemUsers } from '../../state/user.state.actions';
 import { systemUsers } from '../../state/user.state.selector';
 import {
   FormControl,
@@ -25,8 +22,6 @@ import {
 export class UserPage {
   constructor(private readonly _store: Store<UserState>) {}
 
-  public signalUsers = signal<UserEntity[]>([]);
-
   public systemUsers$ = this._store.select(systemUsers);
 
   public formGroup: FormGroup = new FormGroup({
@@ -37,7 +32,6 @@ export class UserPage {
 
   getUsers(): void {
     this._store.dispatch(getSystemUsers());
-    this.setUpUsersListener();
   }
 
   onUpdate(user: UserEntity) {
@@ -51,7 +45,7 @@ export class UserPage {
   onSubmit() {
     var userToUpdate: UserEntity = this.formGroup.value;
 
-    this._store.dispatch(updateSystemUser({ userToUpdate: userToUpdate }));
+    // this._store.dispatch(updateSystemUser({ userToUpdate: userToUpdate }));
 
     this.clearForm();
   }
@@ -64,12 +58,6 @@ export class UserPage {
     this.formGroup.patchValue({
       userName: null,
       userEmail: null,
-    });
-  }
-
-  private setUpUsersListener(): void {
-    this.systemUsers$.subscribe((users) => {
-      this.signalUsers.set(users);
     });
   }
 }
