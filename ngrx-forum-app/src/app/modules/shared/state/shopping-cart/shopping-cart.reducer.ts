@@ -1,26 +1,20 @@
 import { combineReducers, createReducer, on } from '@ngrx/store';
 import { CartState } from './shopping-cart.state';
 import * as CartActions from './shopping-cart.actions';
-import { cartAdapter } from './shopping-cart.adapter';
 
 export const appCartStateFeatureKey = 'AppCartStateKey';
 
-export const initialCartState: CartState = cartAdapter.getInitialState({
-  items: cartAdapter.getInitialState(),
+export const initialCartState: CartState = {
+  items: [],
   cartConfig: null,
-});
+};
 
 const itemsReducer = createReducer(
   initialCartState.items,
-  on(CartActions.addToCart, (state, action) =>
-    cartAdapter.addOne(action.cartItem, state)
-  ),
-  on(CartActions.removeFromCart, (state, action) =>
-    cartAdapter.removeOne(action.itemId, state)
-  ),
-  on(CartActions.clearCart, (state) => cartAdapter.removeAll(state))
+  on(CartActions.addToCart, (state, { cartItem }) => [...state, cartItem]),
+  on(CartActions.removeFromCartSuccess, (_, { cartItems }) => cartItems),
+  on(CartActions.clearCart, () => [])
 );
-
 const configReducer = createReducer(
   initialCartState.cartConfig,
   on(CartActions.setShoppingCartConfig, (state, { cartConfig }) => ({
@@ -29,7 +23,6 @@ const configReducer = createReducer(
     showItemCount: cartConfig.showItemCount,
   }))
 );
-
 export const cartReducer = combineReducers(
   {
     items: itemsReducer,
