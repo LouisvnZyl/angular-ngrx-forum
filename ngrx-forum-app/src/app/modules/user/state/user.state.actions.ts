@@ -14,6 +14,11 @@ export const getSystemUsersError = createAction(
   props<{ errorMessage: string }>()
 );
 
+export const updateSystemUser = createAction(
+  '[User] UPDATE_SYSTEM_USER',
+  props<{ userToUpdate: UserEntity }>()
+);
+
 export const deleteSystemUser = createAction(
   '[User] DELETE_SYSTEM_USER',
   props<{ userId: number }>()
