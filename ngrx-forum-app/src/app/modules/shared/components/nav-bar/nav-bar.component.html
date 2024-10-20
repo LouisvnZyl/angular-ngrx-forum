@@ -1,0 +1,24 @@
+<div class="navbar">
+  <ul class="navbar-menu" #navbarMenu>
+    <li (click)="onNavigate(navigationOption.Shop)">
+      <a>Shop</a>
+    </li>
+    <li (click)="onNavigate(navigationOption.Cart)">
+      <a>Cart</a>
+    </li>
+    <li (click)="onNavigate(navigationOption.User)">
+      <a>User</a>
+    </li>
+  </ul>
+  <div class="placeholder">
+    <div class="cart-count">
+      <span class="count">{{ cartItemCount$ | async }}</span>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="shopping_cart"
+        class="icon"
+      ></mat-icon>
+    </div>
+  </div>
+</div>

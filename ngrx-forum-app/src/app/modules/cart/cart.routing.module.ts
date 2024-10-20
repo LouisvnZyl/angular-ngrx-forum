@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './app.routes';
+import { cartRoutes } from './cart.routes';
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [[RouterModule.forChild(cartRoutes)]],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class CartRoutingModule {}
