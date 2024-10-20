@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartItem } from '../../shared/state/interfaces/cart-item.interface';
 import { Store } from '@ngrx/store';
-import { addToCart } from '../../shared/state/shopping-cart/shopping-cart.actions';
+// import { addToCart } from '../../shared/state/shopping-cart/shopping-cart.actions';
 
 @Component({
   templateUrl: './shop.page.html',
@@ -22,6 +22,6 @@ export class ShopPage {
   ];
 
   addToCart(item: CartItem) {
-    this.store.dispatch(addToCart({ cartItem: item }));
+    // this.store.dispatch(addToCart({ cartItem: item }));
   }
 }
