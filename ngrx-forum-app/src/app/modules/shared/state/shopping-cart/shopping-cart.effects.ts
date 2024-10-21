@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 // import * as CartActions from './shopping-cart.actions';
 import { of, switchMap, withLatestFrom } from 'rxjs';
 import { CartState } from './shopping-cart.state';
-import { selectCartItems } from './shopping-cart.selector';
 
 @Injectable()
 export class CartEffects {

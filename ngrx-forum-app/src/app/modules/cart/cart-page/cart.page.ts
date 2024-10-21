@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartState } from '../../shared/state/shopping-cart/shopping-cart.state';
 import { Store } from '@ngrx/store';
-import { selectCartItems } from '../../shared/state/shopping-cart/shopping-cart.selector';
+import { of } from 'rxjs';
+import { CartItem } from '../../shared/state/interfaces/cart-item.interface';
 
 @Component({
   selector: 'app-cart-page',
@@ -13,7 +14,7 @@ import { selectCartItems } from '../../shared/state/shopping-cart/shopping-cart.
 export class CartPage {
   constructor(private readonly _store: Store<CartState>) {}
 
-  public readonly cartItems$ = this._store.select(selectCartItems);
+  public readonly cartItems$ = of([] as CartItem[]); //this._store.select(selectCartItems);
 
   public removeCartItem(itemId: number): void {
     // this._store.dispatch(removeFromCart({ itemId: itemId }));
